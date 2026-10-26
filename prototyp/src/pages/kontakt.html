@@ -1,0 +1,76 @@
+<!--
+title: Kontakt
+nav: kontakt
+description: Pierwszy krok to rozmowa. Zadzwoń pod 512 64 00 44 lub napisz na biuro@remontuj24.pl. Mieszkania pod klucz w Gdańsku, Gdyni i Sopocie.
+-->
+<section class="hero contact-hero" aria-labelledby="h1">
+  <div class="wrap contact-grid">
+    <div class="contact-info">
+      <nav class="crumbs rv" aria-label="Okruszki"><a href="index.html">Strona główna</a><span aria-hidden="true">/</span><span>Kontakt</span></nav>
+      <span class="eyebrow rv">Kontakt</span>
+      <h1 id="h1"><span class="line"><span>Pierwszy krok</span></span><span class="line"><span>to rozmowa<span class="dot">.</span></span></span></h1>
+      <span class="rule rv" aria-hidden="true"></span>
+      <div class="firm rv"><b>REMONTUJ24</b><span>Mieszkania pod klucz · Trójmiasto</span></div>
+      <a class="phone rv" href="tel:+48512640044">512 64 00 44</a>
+      <a class="mail rv" href="mailto:biuro@remontuj24.pl">biuro@remontuj24.pl</a>
+      <div class="hours rv">
+        <div><span>Obszar działania</span><b>Gdańsk · Gdynia · Sopot</b></div>
+        <div><span>Właściciel poza Trójmiastem</span><b>Ustalenia zdalnie</b></div>
+      </div>
+      <div class="social rv" aria-label="Media społecznościowe">
+        <a href="#" aria-label="Instagram"><svg><use href="#ico-ig"/></svg></a>
+        <a href="#" aria-label="Facebook"><svg><use href="#ico-fb"/></svg></a>
+        <a href="#" aria-label="TikTok"><svg><use href="#ico-tt"/></svg></a>
+      </div>
+    </div>
+
+    <form class="form rv" id="contact-form" novalidate aria-labelledby="h-form">
+      <h2 id="h-form">Formularz kontaktowy</h2>
+      <div class="ff" data-req>
+        <label for="f-name">Imię</label>
+        <input id="f-name" name="name" autocomplete="given-name" aria-describedby="e-name">
+        <span class="err" id="e-name" hidden>Podaj imię, abyśmy wiedzieli, jak się zwracać.</span>
+      </div>
+      <div class="ff" data-req>
+        <label for="f-contact">Telefon lub e-mail</label>
+        <input id="f-contact" name="contact" autocomplete="email" inputmode="email" aria-describedby="e-contact">
+        <span class="err" id="e-contact" hidden>Podaj telefon lub e-mail, żebyśmy mogli odpowiedzieć.</span>
+      </div>
+      <div class="ff" data-req>
+        <label for="f-msg">Wiadomość</label>
+        <textarea id="f-msg" name="message" rows="4" placeholder="Np. lokalizacja i metraż mieszkania, termin odbioru kluczy, czego potrzebujesz" aria-describedby="e-msg"></textarea>
+        <span class="err" id="e-msg" hidden>Napisz kilka słów o mieszkaniu.</span>
+      </div>
+      <div class="ff check" data-req>
+        <input type="checkbox" id="f-rodo" name="rodo" aria-describedby="e-rodo">
+        <label for="f-rodo">Wyrażam zgodę na przetwarzanie moich danych w celu odpowiedzi na wiadomość. Szczegóły w <a href="polityka-prywatnosci.html" style="text-decoration:underline;text-underline-offset:3px">polityce prywatności</a>.</label>
+        <span class="err" id="e-rodo" hidden style="grid-column:2">Zaznacz zgodę, abyśmy mogli odpowiedzieć.</span>
+      </div>
+      <button class="btn" type="submit">Wyślij wiadomość {{arrow}}</button>
+      <div class="done" id="form-done" tabindex="-1" hidden>
+        {{sygnet}}
+        <h2>Dziękujemy za wiadomość.</h2>
+        <p>Odezwiemy się, aby umówić krótką rozmowę o mieszkaniu. Jeśli sprawa jest pilna, zadzwoń: <a href="tel:+48512640044" style="color:var(--ink);white-space:nowrap">512 64 00 44</a>.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="h-next" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head split">
+      <div style="display:grid;gap:22px">
+        <span class="eyebrow rv">Co dalej</span>
+        <h2 id="h-next" class="rv">Nie trzeba mieć gotowego projektu<span class="dot">.</span></h2>
+      </div>
+      <p class="lead rv">Na początku wystarczy określić mieszkanie, jego przeznaczenie i oczekiwany efekt. Dalsze kroki można uporządkować wspólnie.</p>
+    </div>
+    <div class="factors three" data-stagger>
+      <div class="factor rv"><span class="num">01</span><h3>Rozmowa i zakres</h3><p>Poznajemy potrzeby, przeznaczenie mieszkania i oczekiwany standard.</p></div>
+      <div class="factor rv"><span class="num">02</span><h3>Plan i przygotowanie</h3><p>Ustalamy kolejność prac, terminy i najważniejsze zależności.</p></div>
+      <div class="factor rv"><span class="num">03</span><h3>Realizacja</h3><p>Koordynujemy kolejne etapy aż do gotowego wnętrza.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="band-photo" aria-hidden="true"><img class="para" src="img/panorama-1600.webp" srcset="img/panorama-1024.webp 1024w, img/panorama-1600.webp 1600w, img/panorama-1940.webp 1940w" sizes="100vw" alt="" loading="lazy" decoding="async"></div>

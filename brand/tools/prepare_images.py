@@ -40,6 +40,17 @@ JOBS = [
     ("poradnik-1", "991F93F2-4012-4922-9EEF-379DCE21EB13.png", (0, 0, 1, 1), (480, 800)),
     ("poradnik-2", "A30C3496-B1AC-49D5-BA58-46A6F86A7BA7.png", (.15, 0, .85, 1), (480, 800)),
     ("poradnik-3", "7C83EAF6-1C93-4119-A68E-1276A1982B1B.png", (.3, 0, 1, 1), (480, 800)),
+    # subpages
+    ("kuchnia-p", "70ABEBE8-4847-412A-8CC0-A21CD0A34342.png", (.42, 0, .78, 1), (480, 720)),
+    ("insp-top", "inspiracje grafika na samej górze.png", (0, 0, 1, 1), (640, 1024, 1600)),
+    ("martwa-natura", "654620F6-A586-4D22-97D0-AAE6CF83DA57.png", (0, 0, 1, 1), (640, 1024, 1600)),
+    ("salon-l", "691B7951-57B7-4923-A836-A1AF8D3DF4CB.png", (.1, 0, .9, 1), (640, 1024, 1600)),
+    ("styl-japandi-l", "inspiracje japandi.png", (0, 0, 1, 1), (640, 1024, 1600)),
+    ("styl-modern-classic-l", "inspiracje modern classic.png", (0, 0, 1, 1), (640, 1024, 1600)),
+    ("styl-soft-minimal-l", "inspiracje soft minimal (Canva).jpg", (0, 0, 1, 1), (640, 1024, 1600)),
+    ("styl-elegant-natural-l", "inspiracje elegant natural.png", (0, 0, 1, 1), (640, 1024, 1600)),
+    ("styl-contemporary-l", "inspiracje contemporary.png", (.17, 0, .83, 1), (640, 1024, 1600)),
+    ("styl-soft-glamour-l", "inspiracje soft minimal.png", (0, 0, 1, 1), (640, 1024, 1600)),
     # closing band
     ("panorama", "89513458-60A5-4C65-AE8B-496FEA130DF4.png", (0, 0, 1, 1), (1024, 1600, 1940)),
 ]
