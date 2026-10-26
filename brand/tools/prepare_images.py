@@ -31,7 +31,7 @@ JOBS = [
     # styles, portrait 4:5 crops
     ("styl-japandi", "inspiracje japandi.png", (.2, 0, .8, 1), (480, 800)),
     ("styl-modern-classic", "inspiracje modern classic.png", (.2, 0, .8, 1), (480, 800)),
-    ("styl-soft-minimal", "654620F6-A586-4D22-97D0-AAE6CF83DA57.png", (.05, 0, .55, 1), (480, 800)),
+    ("styl-soft-minimal", "inspiracje soft minimal (Canva).jpg", (.1, 0, .633, 1), (480, 800)),
     ("styl-elegant-natural", "inspiracje elegant natural.png", (.1, 0, .7, 1), (480, 800)),
     # Trójmiasto + remote coordination
     ("gdansk", "86A6722B-C621-422B-BB18-E428242C404C.png", (0, 0, 1, 1), (640, 1024, 1600)),
