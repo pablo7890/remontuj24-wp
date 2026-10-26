@@ -1,0 +1,27 @@
+<?php
+return [
+	'title'       => 'Hero strony głównej',
+	'description' => 'Nagłówek z suwakiem „przed i po”.',
+	'icon'        => 'cover-image',
+	'order'       => 1,
+	'fields'      => [
+		[ 'key' => 'eyebrow', 'label' => 'Nadtytuł', 'type' => 'text' ],
+		[ 'key' => 'title', 'label' => 'Tytuł (każda linia osobno)', 'type' => 'textarea' ],
+		[ 'key' => 'lead', 'label' => 'Wstęp', 'type' => 'textarea' ],
+		[ 'key' => 'note', 'label' => 'Dopisek ze złotą kropką', 'type' => 'text' ],
+		[ 'key' => 'btn_text', 'label' => 'Przycisk: tekst', 'type' => 'text' ],
+		[ 'key' => 'btn_url', 'label' => 'Przycisk: adres', 'type' => 'url' ],
+		[ 'key' => 'link_text', 'label' => 'Link: tekst', 'type' => 'text' ],
+		[ 'key' => 'link_url', 'label' => 'Link: adres', 'type' => 'url' ],
+		[ 'type' => 'panel', 'label' => 'Przed i po' ],
+		[ 'key' => 'before', 'label' => 'Zdjęcie „przed” (poziome)', 'type' => 'image' ],
+		[ 'key' => 'after', 'label' => 'Zdjęcie „po” z tego samego miejsca', 'type' => 'image' ],
+		[ 'key' => 'before_m', 'label' => 'Telefon: „przed” w pionie (opcjonalnie)', 'type' => 'image' ],
+		[ 'key' => 'after_m', 'label' => 'Telefon: „po” w pionie (opcjonalnie)', 'type' => 'image' ],
+		[ 'key' => 'before_label', 'label' => 'Etykieta „przed”', 'type' => 'text', 'default' => 'Przed' ],
+		[ 'key' => 'after_label', 'label' => 'Etykieta „po”', 'type' => 'text', 'default' => 'Po' ],
+		[ 'key' => 'caption_left', 'label' => 'Podpis po lewej', 'type' => 'text', 'default' => 'Przeciągnij, aby porównać' ],
+		[ 'key' => 'caption_right', 'label' => 'Podpis po prawej', 'type' => 'text' ],
+		[ 'key' => 'start', 'label' => 'Pozycja suwaka po animacji (%)', 'type' => 'number', 'default' => 46 ],
+	],
+];

@@ -1,0 +1,8 @@
+/* Editor canvas: text pages and articles read like on the site. */
+/* WordPress scopes these rules to the editor canvas itself. */
+body{background:#F7F5F1}
+.is-root-container > :where(p, h2, h3, ul, ol, figure, blockquote, table){max-width:680px;margin-inline:auto}
+p.lead{font-size:1.25rem;line-height:1.6;color:#171717}
+p.signoff{font:500 1.35rem/1.4 "Cormorant Garamond", serif;border-top:1px solid #D8D3CA;padding-top:24px}
+.ph-var{background:#F3E9D8;padding:0 4px;color:#6B4F28}
+.editor-post-title__input{font-family:"Cormorant Garamond", serif;font-weight:500}

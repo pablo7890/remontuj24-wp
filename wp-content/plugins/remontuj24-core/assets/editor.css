@@ -1,0 +1,21 @@
+/* Sidebar controls for Remontuj24 blocks. The canvas preview uses the theme's own CSS. */
+.r24-field{margin-bottom:16px}
+.r24-label{margin:0 0 8px;font-size:11px;font-weight:500;text-transform:uppercase;line-height:1.4}
+.r24-help{margin:6px 0 0;font-size:12px;color:#757575;font-style:normal}
+.r24-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.r24-thumb{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;background:#f0f0f0;border:1px solid #e0e0e0}
+.r24-thumb.is-loading{animation:r24-pulse 1.2s ease-in-out infinite}
+@keyframes r24-pulse{50%{opacity:.5}}
+.r24-gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:8px}
+.r24-gallery-grid .r24-thumb{aspect-ratio:1}
+.r24-repeater{border-top:1px solid #e0e0e0;padding-top:12px}
+.r24-item{border:1px solid #e0e0e0;margin-bottom:6px;background:#fff}
+.r24-item.is-open{border-color:#b38a50}
+.r24-item-head{display:flex;align-items:center;gap:2px;padding-right:4px}
+.r24-item-title{flex:1;min-width:0;display:flex;gap:8px;align-items:center;padding:10px;border:0;background:none;text-align:left;cursor:pointer;font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.r24-item-no{color:#8c6a3a;font-variant-numeric:tabular-nums}
+.r24-item-body{padding:12px 12px 2px;border-top:1px solid #f0f0f0}
+.r24-add{width:100%;justify-content:center}
+/* The canvas shows the real section; links inside are not clickable while editing. */
+.r24-block-preview a,.r24-block-preview button,.r24-block-preview input,.r24-block-preview textarea{pointer-events:none}
+.r24-block-preview .components-placeholder{min-height:160px}
