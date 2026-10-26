@@ -1,0 +1,131 @@
+<title>Remontuj24 identyfikacja</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<style>
+/* Layout: brand sheet — a single column of specimen plates, each plate one decision. */
+:root{
+  color-scheme: light;
+  --paper:#F7F5F1; --cream:#F1EEE8; --white:#FFFFFF; --night:#111111;
+  --ink:#171717; --muted:#55524D; --line:#D8D3CA; --gold:#B38A50; --gold-text:#8C6A3A;
+  --serif:"Cormorant Garamond", Garamond, "Times New Roman", serif;
+  --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font:400 16px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(20px, env(safe-area-inset-left,0px));padding-right:max(20px, env(safe-area-inset-right,0px));padding-block:56px 96px;display:grid;gap:72px}
+h1,h2{font-family:var(--serif);font-weight:500;margin:0;line-height:1.05;text-wrap:balance}
+h1{font-size:clamp(2.6rem, 1.8rem + 3vw, 4rem)}
+h2{font-size:clamp(1.9rem, 1.5rem + 1.4vw, 2.6rem)}
+p{margin:0;max-width:44em;color:var(--muted)}
+.eyebrow{font:500 12px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-text)}
+.head{display:grid;gap:18px}
+.plate{display:grid;gap:24px}
+.plate > header{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:24px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit, minmax(min(100%, 320px), 1fr))}
+.tile{display:grid;gap:12px;align-content:start}
+.tile .art{display:grid;place-items:center;min-height:200px;padding:32px;background:var(--white);border:1px solid var(--line)}
+.tile .art.dark{background:var(--night);border-color:var(--night)}
+.tile .art.cream{background:var(--cream)}
+.tile .art img{max-width:100%;height:auto}
+.tile b{font-weight:600;font-size:14px}
+.tile span{font-size:13.5px;color:var(--muted)}
+.story{display:grid;gap:28px;align-items:center}
+@media (min-width:820px){.story{grid-template-columns:280px 1fr}}
+.story .art{background:var(--white);border:1px solid var(--line);aspect-ratio:1;display:grid;place-items:center;padding:40px}
+.sizes{display:flex;gap:28px;align-items:flex-end;flex-wrap:wrap;padding:28px;background:var(--white);border:1px solid var(--line)}
+.sizes figure{margin:0;display:grid;gap:8px;justify-items:center;font-size:12px;color:var(--muted)}
+.swatches{display:grid;gap:12px;grid-template-columns:repeat(auto-fill, minmax(150px, 1fr))}
+.sw{border:1px solid var(--line);background:var(--white)}
+.sw i{display:block;height:96px}
+.sw div{padding:12px 14px;display:grid;gap:2px;font-size:13px}
+.sw code{font:500 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;color:var(--ink)}
+.sw small{color:var(--muted);font-size:12px;line-height:1.4}
+.type{display:grid;gap:0;background:var(--white);border:1px solid var(--line)}
+.type > div{display:grid;gap:6px 24px;padding:20px 24px;border-bottom:1px solid var(--line);align-items:baseline}
+.type > div:last-child{border-bottom:0}
+@media (min-width:760px){.type > div{grid-template-columns:150px 1fr}}
+.type small{font:500 11.5px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text)}
+.rules{display:grid;gap:12px;padding:0;margin:0;list-style:none}
+.rules li{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.rules li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none;margin-top:10px}
+.btns{display:flex;gap:16px 28px;flex-wrap:wrap;align-items:center;padding:28px;background:var(--white);border:1px solid var(--line)}
+.btn{display:inline-flex;align-items:center;gap:14px;min-height:54px;padding:0 26px;background:var(--night);color:var(--paper);font:500 13.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase}
+.link{display:inline-flex;gap:12px;font:500 13.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:12px 0;border-bottom:1px solid var(--gold)}
+.link em{font-style:normal;color:var(--gold)}
+</style>
+
+<div class="wrap">
+  <div class="head">
+    <span class="eyebrow">Remontuj24 · identyfikacja · wersja 1</span>
+    <h1>Logo, kolory i typografia</h1>
+    <p>Nowy znak i zasady, na których zbudowana jest strona. Wszystkie pliki SVG są w repozytorium w folderze <code>brand/logo</code>, z tekstem zamienionym na krzywe, więc wyglądają tak samo na każdym komputerze.</p>
+  </div>
+
+  <section class="plate">
+    <header><span class="eyebrow">01 · Sygnet</span><h2>Rzut pokoju z otwartymi drzwiami</h2></header>
+    <div class="story">
+      <div class="art"><img src="logo/sygnet.svg" alt="Sygnet Remontuj24" width="200" height="200"></div>
+      <p>Znak to fragment planu architekta: ściany pomieszczenia i drzwi z łukiem otwarcia. Drzwi to moment odbioru kluczy, pokój to gotowe wnętrze, czyli dokładnie obietnica firmy „od kluczy do gotowego wnętrza”. Łuk jest złoty, bo to jedyny akcent; reszta znaku pracuje czernią. Forma jest prosta, więc działa od favicony 16 px po szyld.</p>
+    </div>
+    <div class="sizes" aria-label="Sygnet w różnych rozmiarach">
+      <figure><img src="logo/favicon.svg" width="16" height="16" alt=""><figcaption>16 px</figcaption></figure>
+      <figure><img src="logo/favicon.svg" width="32" height="32" alt=""><figcaption>32 px</figcaption></figure>
+      <figure><img src="logo/sygnet.svg" width="48" height="48" alt=""><figcaption>48 px</figcaption></figure>
+      <figure><img src="logo/sygnet.svg" width="96" height="96" alt=""><figcaption>96 px</figcaption></figure>
+      <figure><img src="logo/ikona-aplikacji.svg" width="120" height="120" alt=""><figcaption>ikona telefonu</figcaption></figure>
+    </div>
+  </section>
+
+  <section class="plate">
+    <header><span class="eyebrow">02 · Warianty logo</span><h2>Jedno logo, sześć zastosowań</h2></header>
+    <div class="grid">
+      <div class="tile"><div class="art"><img src="logo/logo-poziome.svg" alt="Logo poziome z hasłem" width="300"></div><b>Poziome z hasłem</b><span>Wersja główna: stopka, dokumenty, oferty, e-mail</span></div>
+      <div class="tile"><div class="art"><img src="logo/logo-poziome-bez-hasla.svg" alt="Logo poziome bez hasła" width="260"></div><b>Poziome bez hasła</b><span>Nagłówek strony, także na telefonie</span></div>
+      <div class="tile"><div class="art"><img src="logo/logo-pionowe.svg" alt="Logo pionowe" width="190"></div><b>Pionowe</b><span>Social media, okładki, wizytówka, szyld</span></div>
+      <div class="tile"><div class="art dark"><img src="logo/logo-poziome-negatyw.svg" alt="Logo w negatywie" width="300"></div><b>Negatyw</b><span>Na ciemnym tle i zdjęciach</span></div>
+      <div class="tile"><div class="art cream"><img src="logo/logo-czarne.svg" alt="Logo czarne" width="300"></div><b>Jednobarwne czarne</b><span>Druk w jednym kolorze, faktury, pieczątka</span></div>
+      <div class="tile"><div class="art"><img src="logo/napis.svg" alt="Sam napis" width="260"></div><b>Sam napis</b><span>Gdy sygnet stoi obok, np. w podpisie maila</span></div>
+    </div>
+  </section>
+
+  <section class="plate">
+    <header><span class="eyebrow">03 · Kolory</span><h2>Paleta klienta, bez zmian</h2><p>Dodałem tylko ciemniejszy odcień złota do drobnego tekstu. Złoto #B38A50 na jasnym tle ma kontrast 2,9:1, a czytelność wymaga 4,5:1. Ciemniejszy odcień daje 4,55:1 i wygląda tak samo.</p></header>
+    <div class="swatches">
+      <div class="sw"><i style="background:#F7F5F1"></i><div><b>Tło</b><code>#F7F5F1</code><small>Główne tło strony</small></div></div>
+      <div class="sw"><i style="background:#F1EEE8"></i><div><b>Krem</b><code>#F1EEE8</code><small>Pasy sekcji</small></div></div>
+      <div class="sw"><i style="background:#FFFFFF"></i><div><b>Biel</b><code>#FFFFFF</code><small>Karty, pola</small></div></div>
+      <div class="sw"><i style="background:#D8D3CA"></i><div><b>Linie</b><code>#D8D3CA</code><small>Separatory</small></div></div>
+      <div class="sw"><i style="background:#B38A50"></i><div><b>Złoto</b><code>#B38A50</code><small>Linie, kropki, cyfry</small></div></div>
+      <div class="sw"><i style="background:#8C6A3A"></i><div><b>Złoto do tekstu</b><code>#8C6A3A</code><small>Nowe: małe etykiety</small></div></div>
+      <div class="sw"><i style="background:#55524D"></i><div><b>Tekst pomocniczy</b><code>#55524D</code><small>Opisy, leady</small></div></div>
+      <div class="sw"><i style="background:#171717"></i><div><b>Tekst</b><code>#171717</code><small>Nagłówki i treść</small></div></div>
+      <div class="sw"><i style="background:#111111"></i><div><b>Czerń</b><code>#111111</code><small>Przyciski, jedna ciemna sekcja</small></div></div>
+    </div>
+  </section>
+
+  <section class="plate">
+    <header><span class="eyebrow">04 · Typografia</span><h2>Cormorant Garamond i Inter</h2><p>Rozmiary z maila klienta. Na telefonie nagłówki zmniejszają się płynnie, a Cormorant nie schodzi poniżej 28 px, bo przy małych rozmiarach jest za cienki.</p></header>
+    <div class="type">
+      <div><small>Hero · 44–76 px</small><span style="font:500 clamp(2.4rem, 1.4rem + 4vw, 4.75rem)/1.04 var(--serif)">Od odbioru kluczy</span></div>
+      <div><small>H2 · 35–50 px</small><span style="font:500 clamp(2.2rem, 1.5rem + 2.4vw, 3.15rem)/1.05 var(--serif)">Różne style. Różne możliwości.</span></div>
+      <div><small>H3 · 26–33 px</small><span style="font:500 clamp(1.6rem, 1.3rem + .9vw, 2.05rem)/1.1 var(--serif)">Materiały i zamówienia</span></div>
+      <div><small>Etykieta · 12,5 px</small><span class="eyebrow">Jak wygląda współpraca?</span></div>
+      <div><small>Tekst · 17 px</small><span style="font-size:17px">Kompleksowo organizujemy i koordynujemy przygotowanie mieszkań w Trójmieście — od pierwszych ustaleń po gotowe wnętrze.</span></div>
+      <div><small>Menu · 14,5 px</small><span style="font:500 14.5px/1 var(--sans)">Jak działamy · Zakres obsługi · Inspiracje · Poradnik</span></div>
+    </div>
+  </section>
+
+  <section class="plate">
+    <header><span class="eyebrow">05 · Przyciski i zasady</span><h2>Mało elementów, każdy na swoim miejscu</h2></header>
+    <div class="btns">
+      <span class="btn">Porozmawiajmy o mieszkaniu →</span>
+      <span class="link">Zobacz, jak działamy <em>→</em></span>
+    </div>
+    <ul class="rules">
+      <li>Dużo jasnej przestrzeni; najwyżej jedna ciemna sekcja na stronę, zwykle zaproszenie do rozmowy na dole.</li>
+      <li>Złoto tylko jako cienka linia, kropka kończąca nagłówek, cyfry kroków i łuk w sygnecie. Bez złotych gradientów i połysku.</li>
+      <li>Kąty proste, bez zaokrągleń i cieni na kartach: architektoniczna precyzja zamiast „aplikacyjnych” kafelków.</li>
+      <li>Numeracja 01–06 tylko tam, gdzie jest prawdziwa kolejność (proces), zamiast ikonek.</li>
+    </ul>
+  </section>
+</div>
