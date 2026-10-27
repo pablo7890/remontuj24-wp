@@ -109,8 +109,11 @@ files = {
     "napis.svg": only_wordmark(INK, GOLD),
     "sygnet.svg": symbol(INK, GOLD),
     "sygnet-negatyw.svg": symbol(PAPER, GOLD, NIGHT, inset=6),
-    "favicon.svg": symbol(PAPER, GOLD, NIGHT, size=48, weight=1.6, inset=7),
-    "ikona-aplikacji.svg": symbol(PAPER, GOLD, NIGHT, size=512, weight=1.2, inset=120),
+    # Light icons are the default (Jack, 27.10); the darker gold keeps the arc visible at 16 px.
+    "favicon.svg": symbol(INK, "#8C6A3A", PAPER, size=48, weight=1.6, inset=7),
+    "ikona-aplikacji.svg": symbol(INK, GOLD, PAPER, size=512, weight=1.2, inset=120),
+    "favicon-ciemna.svg": symbol(PAPER, GOLD, NIGHT, size=48, weight=1.6, inset=7),
+    "ikona-aplikacji-ciemna.svg": symbol(PAPER, GOLD, NIGHT, size=512, weight=1.2, inset=120),
 }
 for name, data in files.items():
     (OUT / name).write_text(data, encoding="utf-8")

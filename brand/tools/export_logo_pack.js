@@ -44,20 +44,22 @@ const GROUPS = [
     }
   }
 
-  // favicons and app icons
-  const fav = read('favicon.svg'), app = read('ikona-aplikacji.svg');
+  // favicons and app icons: light (default) in 06-favicon, dark in 06-favicon/ciemne
   const F = path.join(OUT, '06-favicon');
-  fs.mkdirSync(F, { recursive: true });
-  fs.copyFileSync(path.join(SRC, 'favicon.svg'), path.join(F, 'favicon.svg'));
-  for (const s of [16, 32, 48, 64]) await render(fav, s, s, path.join(F, `favicon-${s}x${s}.png`));
-  await render(app, 180, 180, path.join(F, 'apple-touch-icon.png'));
-  for (const s of [192, 512]) await render(app, s, s, path.join(F, `android-chrome-${s}x${s}.png`));
-  fs.copyFileSync(path.join(SRC, 'ikona-aplikacji.svg'), path.join(F, 'ikona-aplikacji.svg'));
+  for (const [dir, suffix] of [[F, ''], [path.join(F, 'ciemne'), '-ciemna']]) {
+    const fav = read(`favicon${suffix}.svg`), app = read(`ikona-aplikacji${suffix}.svg`);
+    fs.mkdirSync(dir, { recursive: true });
+    fs.copyFileSync(path.join(SRC, `favicon${suffix}.svg`), path.join(dir, 'favicon.svg'));
+    for (const s of [16, 32, 48, 64]) await render(fav, s, s, path.join(dir, `favicon-${s}x${s}.png`));
+    await render(app, 180, 180, path.join(dir, 'apple-touch-icon.png'));
+    for (const s of [192, 512]) await render(app, s, s, path.join(dir, `android-chrome-${s}x${s}.png`));
+    fs.copyFileSync(path.join(SRC, `ikona-aplikacji${suffix}.svg`), path.join(dir, 'ikona-aplikacji.svg'));
+  }
 
   // social media: profile picture and link preview
   const S = path.join(OUT, '07-social-media');
-  await render(app, 1080, 1080, path.join(S, 'avatar-1080x1080.png'));
-  await render(read('sygnet.svg'), 1080, 1080, path.join(S, 'avatar-jasny-1080x1080.png'), '#F7F5F1', 240);
+  await render(read('ikona-aplikacji.svg'), 1080, 1080, path.join(S, 'avatar-1080x1080.png'));
+  await render(read('ikona-aplikacji-ciemna.svg'), 1080, 1080, path.join(S, 'avatar-ciemny-1080x1080.png'));
   const logo = read('logo-poziome.svg');
   await page.setViewportSize({ width: 1200, height: 630 });
   await page.setContent(`<html><body style="margin:0;width:1200px;height:630px;background:#F7F5F1;display:grid;place-items:center">${logo.replace('<svg ', '<svg style="width:720px;height:auto" ')}</body></html>`);
