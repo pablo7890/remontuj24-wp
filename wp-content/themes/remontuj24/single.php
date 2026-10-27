@@ -34,7 +34,7 @@ while ( have_posts() ) :
 		<?php endif; ?>
 
 		<div class="wrap article-body">
-			<?php echo r24t_toc( $toc, __( 'W artykule', 'remontuj24' ) ) ?: '<span></span>'; // phpcs:ignore WordPress.Security.EscapeOutput ?>
+			<?php echo r24t_toc( $toc, (string) r24_opt( 'toc_title' ) ) ?: '<span></span>'; // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			<div class="prose" data-article>
 				<?php echo $content; // phpcs:ignore WordPress.Security.EscapeOutput -- filtered post content. ?>
 				<?php if ( r24_opt( 'article_cta_title' ) ) : ?>
@@ -45,11 +45,13 @@ while ( have_posts() ) :
 						<?php echo r24_button( r24_opt( 'article_cta_btn' ), $contact ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 					</div>
 				<?php endif; ?>
-				<div class="share"><span><?php esc_html_e( 'Udostępnij', 'remontuj24' ); ?></span><button type="button" data-copy><?php esc_html_e( 'Kopiuj link', 'remontuj24' ); ?></button></div>
+				<?php if ( '1' === r24_opt( 'share_enabled' ) ) : ?>
+					<div class="share"><span><?php esc_html_e( 'Udostępnij', 'remontuj24' ); ?></span><button type="button" data-copy><?php esc_html_e( 'Kopiuj link', 'remontuj24' ); ?></button></div>
+				<?php endif; ?>
 			</div>
 			<?php if ( r24_opt( 'article_aside' ) ) : ?>
 				<aside class="aside-note">
-					<b><?php esc_html_e( 'Jeden kontakt. Jeden proces.', 'remontuj24' ); ?></b>
+					<?php if ( r24_opt( 'article_aside_title' ) ) : ?><b><?php echo esc_html( r24_opt( 'article_aside_title' ) ); ?></b><?php endif; ?>
 					<span><?php echo esc_html( r24_opt( 'article_aside' ) ); ?></span>
 					<?php if ( $howto ) : ?><a class="link" href="<?php echo esc_url( get_permalink( $howto ) ); ?>"><?php esc_html_e( 'Zobacz, jak działamy', 'remontuj24' ); ?> <?php echo r24_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput ?></a><?php endif; ?>
 				</aside>
@@ -69,7 +71,7 @@ while ( have_posts() ) :
 				<div class="section-head split">
 					<div class="head-main">
 						<span class="eyebrow rv"><?php esc_html_e( 'Poradnik', 'remontuj24' ); ?></span>
-						<h2 id="h-rel" class="rv"><?php echo r24_title( __( 'Czytaj dalej.', 'remontuj24' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
+						<h2 id="h-rel" class="rv"><?php echo r24_title( (string) r24_opt( 'related_title' ) ); // phpcs:ignore WordPress.Security.EscapeOutput ?></h2>
 					</div>
 					<a class="link rv" href="<?php echo esc_url( r24t_guide_url() ); ?>"><?php esc_html_e( 'Wszystkie artykuły', 'remontuj24' ); ?> <?php echo r24_arrow(); // phpcs:ignore WordPress.Security.EscapeOutput ?></a>
 				</div>

@@ -18,10 +18,13 @@ Motyw nie był jeszcze uruchomiony na prawdziwym WordPressie (sprawdzony składn
 2. **Wygląd → Motywy → Dodaj nowy → Wyślij motyw** → `remontuj24.zip` → Włącz.
 3. **Remontuj24 → Treści startowe** → zostaw wszystko zaznaczone → *Zaimportuj treści startowe*. Powstaną: 8 stron z tekstami klienta, 3 artykuły Poradnika, polityka prywatności, menu, zdjęcia w bibliotece (WebP) i przykładowa realizacja jako szkic. Import można powtórzyć, istniejące strony zostają bez zmian.
 4. **Remontuj24 → Ustawienia**, zakładka po zakładce:
-   - *Firma i kontakt*: pełna nazwa, adres, NIP, REGON (trafiają do polityki prywatności), telefon, e-mail.
-   - *Nagłówek i social media*: linki Instagram, Facebook, TikTok (puste = ikona się nie pokaże).
-   - *Formularz kontaktowy*: adres, na który mają przychodzić wiadomości.
+   - *Firma i kontakt*: pełna nazwa, adres, NIP, REGON (trafiają do polityki prywatności), telefon, e-mail, WhatsApp, godziny kontaktu, miasta dla Google.
+   - *Nagłówek i stopka*: własne logo (nagłówek i stopka), przycisk w nagłówku, pasek ogłoszeń nad stroną, pasek przycisków na telefonie, napisy w stopce.
+   - *Social media*: Instagram, Facebook, TikTok, YouTube, LinkedIn, Pinterest (puste = ikona się nie pokaże).
+   - *Formularz kontaktowy*: adres odbiorcy i kopii, temat, zgoda, komunikat, treść e-maila z potwierdzeniem dla nadawcy.
    - *Newsletter*: włącz, wybierz dostawcę (MailerLite, Brevo, Mailchimp albo „tylko lista w WordPressie”) i wklej klucz API oraz ID listy.
+   - *Teksty i sekcje*: ramka i notka przy artykułach, spis treści, zaproszenie pod realizacją, strona 404.
+   - *Wygląd i SEO*: animacje włącz/wyłącz, domyślny opis w Google, obrazek przy udostępnianiu linku, kod Google Search Console.
    - *Cookies i analityka*: ID Google Analytics 4 i piksel Meta, jeśli są używane. Ładują się dopiero po zgodzie.
 5. **Strony → Polityka prywatności** → uzupełnij fragmenty wyróżnione na beżowo (dostawca newslettera, narzędzia analityczne). Najlepiej, żeby całość przejrzała osoba od RODO.
 

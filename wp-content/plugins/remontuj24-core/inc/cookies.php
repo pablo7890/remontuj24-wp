@@ -29,7 +29,7 @@ add_action( 'wp_footer', function () {
 	?>
 	<div class="cookie-bar" id="cookie-bar" role="dialog" aria-modal="false" aria-labelledby="cookie-title" hidden>
 		<div class="cookie-in">
-			<p class="cookie-title" id="cookie-title"><?php esc_html_e( 'Pliki cookies', 'remontuj24' ); ?></p>
+			<p class="cookie-title" id="cookie-title"><?php echo esc_html( r24_opt( 'cookie_title', __( 'Pliki cookies', 'remontuj24' ) ) ); ?></p>
 			<p class="cookie-text"><?php echo r24_with_policy_link( (string) r24_opt( 'cookie_text' ) ); ?></p>
 			<div class="cookie-options" hidden>
 				<label><input type="checkbox" checked disabled> <?php esc_html_e( 'Niezbędne — zawsze włączone', 'remontuj24' ); ?></label>

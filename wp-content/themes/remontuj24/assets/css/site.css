@@ -853,3 +853,15 @@ body{margin:0}
 .more{color:var(--muted)}
 .split .ph img.para{height:115%}
 .toc a b,.pager,.facts-list dd{font-variant-numeric:lining-nums tabular-nums}
+
+/* settings-driven parts: announcement bar, phone action bar with WhatsApp */
+.announce{background:var(--night);color:#D9D4CB;font-size:13.5px;line-height:1.45}
+.announce .wrap{display:flex;align-items:center;justify-content:center;gap:12px;min-height:40px;padding-block:8px;position:relative}
+.announce p{text-align:center;padding-inline:28px}
+.announce a{color:#C9A472;margin-left:8px;text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.announce-close{position:absolute;right:max(var(--gutter), env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);width:32px;height:32px;display:grid;place-items:center;background:none;border:0;color:#D9D4CB;cursor:pointer}
+.announce-close svg{width:11px;height:11px}
+.actionbar a:only-child{grid-column:1 / -1}
+.actionbar.three{grid-template-columns:repeat(3,1fr)}
+.actionbar.three a{font-size:12px;letter-spacing:.1em;gap:8px}
+.actionbar.three a + a:not(:last-child){background:var(--night);color:var(--paper)}

@@ -339,3 +339,4 @@ function wp_get_attachment_image_src( $id ) { $a = $GLOBALS['r24h']['att'][ $id 
 function wp_get_attachment_url( $id ) { return wp_get_attachment_image_url( $id ); }
 function get_site_icon_url() { return ''; }
 function get_locale() { return 'pl_PL'; }
+function absint( $v ) { return abs( (int) $v ); }

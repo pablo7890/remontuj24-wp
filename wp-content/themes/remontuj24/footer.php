@@ -16,13 +16,14 @@ $news = r24_newsletter_form( 'news' );
 				<?php echo r24_social(); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			</div>
 			<nav class="fcol" aria-label="<?php esc_attr_e( 'Nawigacja w stopce', 'remontuj24' ); ?>">
-				<h2 class="fh"><?php esc_html_e( 'Nawigacja', 'remontuj24' ); ?></h2>
+				<h2 class="fh"><?php echo esc_html( r24_opt( 'footer_nav_title' ) ); ?></h2>
 				<?php echo r24t_menu_links( 'footer' ); // phpcs:ignore WordPress.Security.EscapeOutput ?>
 			</nav>
 			<div class="fcol">
-				<h2 class="fh"><?php esc_html_e( 'Kontakt', 'remontuj24' ); ?></h2>
+				<h2 class="fh"><?php echo esc_html( r24_opt( 'footer_contact_title' ) ); ?></h2>
 				<?php if ( r24_opt( 'phone' ) ) : ?><a href="<?php echo esc_attr( r24_tel() ); ?>"><?php echo esc_html( r24_phone_display() ); ?></a><?php endif; ?>
 				<?php if ( r24_opt( 'email' ) ) : ?><a href="mailto:<?php echo esc_attr( antispambot( r24_opt( 'email' ) ) ); ?>"><?php echo esc_html( antispambot( r24_opt( 'email' ) ) ); ?></a><?php endif; ?>
+				<?php if ( r24_opt( 'hours' ) ) : ?><span class="muted"><?php echo esc_html( r24_opt( 'hours' ) ); ?></span><?php endif; ?>
 				<?php if ( r24_opt( 'tagline' ) ) : ?><span class="muted"><?php echo esc_html( r24_opt( 'tagline' ) ); ?></span><?php endif; ?>
 			</div>
 			<?php if ( $news ) : ?>
@@ -34,7 +35,7 @@ $news = r24_newsletter_form( 'news' );
 			<?php endif; ?>
 		</div>
 		<div class="bottom">
-			<span>© <?php echo esc_html( wp_date( 'Y' ) . ' ' . r24_opt( 'company_short', get_bloginfo( 'name' ) ) ); ?></span>
+			<span><?php echo esc_html( str_replace( '{rok}', wp_date( 'Y' ), (string) r24_opt( 'footer_copyright' ) ) ); ?></span>
 			<button class="totop" id="totop" type="button"><?php esc_html_e( 'Do góry', 'remontuj24' ); ?> <svg aria-hidden="true"><use href="#arr"/></svg></button>
 			<nav aria-label="<?php esc_attr_e( 'Dokumenty', 'remontuj24' ); ?>">
 				<?php
@@ -51,11 +52,15 @@ $news = r24_newsletter_form( 'news' );
 	</div>
 </footer>
 
-<div class="cursor" id="cursor" aria-hidden="true"><?php esc_html_e( 'Przeciągnij', 'remontuj24' ); ?></div>
-<div class="actionbar" id="actionbar">
-	<?php if ( r24_opt( 'phone' ) ) : ?><a href="<?php echo esc_attr( r24_tel() ); ?>"><svg aria-hidden="true"><use href="#ico-phone"/></svg><?php esc_html_e( 'Zadzwoń', 'remontuj24' ); ?></a><?php endif; ?>
-	<a href="<?php echo esc_url( r24_url( r24_opt( 'contact_url', '/kontakt/' ) ) ); ?>"><svg aria-hidden="true"><use href="#ico-mail"/></svg><?php esc_html_e( 'Napisz', 'remontuj24' ); ?></a>
-</div>
+<div class="cursor" id="cursor" aria-hidden="true"><?php echo esc_html( r24_opt( 'cursor_label', __( 'Przeciągnij', 'remontuj24' ) ) ); ?></div>
+<?php if ( '1' === r24_opt( 'actionbar_enabled' ) ) : ?>
+	<?php $wa = r24_whatsapp_url(); ?>
+	<div class="actionbar<?php echo $wa ? ' three' : ''; ?>" id="actionbar">
+		<?php if ( r24_opt( 'phone' ) ) : ?><a href="<?php echo esc_attr( r24_tel() ); ?>"><svg aria-hidden="true"><use href="#ico-phone"/></svg><?php echo esc_html( r24_opt( 'actionbar_call' ) ); ?></a><?php endif; ?>
+		<?php if ( $wa ) : ?><a href="<?php echo esc_url( $wa ); ?>" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#ico-wa"/></svg>WhatsApp</a><?php endif; ?>
+		<a href="<?php echo esc_url( r24_url( r24_opt( 'contact_url', '/kontakt/' ) ) ); ?>"><svg aria-hidden="true"><use href="#ico-mail"/></svg><?php echo esc_html( r24_opt( 'actionbar_write' ) ); ?></a>
+	</div>
+<?php endif; ?>
 <?php wp_footer(); ?>
 </body>
 </html>

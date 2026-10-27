@@ -139,10 +139,32 @@ function r24_button( ?string $text, ?string $url, string $class = 'btn' ): strin
 }
 
 /** Social profile links set in Remontuj24 → Ustawienia. */
+/** Social profiles from the settings: key => [ sprite icon, label ]. */
+function r24_social_networks(): array {
+	return [
+		'instagram' => [ 'ig', 'Instagram' ],
+		'facebook'  => [ 'fb', 'Facebook' ],
+		'tiktok'    => [ 'tt', 'TikTok' ],
+		'youtube'   => [ 'yt', 'YouTube' ],
+		'linkedin'  => [ 'in', 'LinkedIn' ],
+		'pinterest' => [ 'pin', 'Pinterest' ],
+	];
+}
+
+/** WhatsApp chat link for the number in the settings, or ''. */
+function r24_whatsapp_url(): string {
+	$digits = preg_replace( '/\D+/', '', (string) r24_opt( 'whatsapp' ) );
+	if ( 9 === strlen( $digits ) ) {
+		$digits = '48' . $digits;
+	}
+	return $digits ? 'https://wa.me/' . $digits : '';
+}
+
 function r24_social(): string {
-	$out = '';
-	foreach ( [ 'instagram' => [ 'ig', 'Instagram' ], 'facebook' => [ 'fb', 'Facebook' ], 'tiktok' => [ 'tt', 'TikTok' ] ] as $key => [ $icon, $label ] ) {
-		$url = r24_opt( $key );
+	$out      = '';
+	$networks = r24_social_networks() + [ 'whatsapp' => [ 'wa', 'WhatsApp' ] ];
+	foreach ( $networks as $key => [ $icon, $label ] ) {
+		$url = 'whatsapp' === $key ? r24_whatsapp_url() : r24_opt( $key );
 		if ( $url ) {
 			$out .= sprintf( '<a href="%s" aria-label="%s" target="_blank" rel="noopener">%s</a>', esc_url( $url ), esc_attr( $label ), r24_icon( $icon ) );
 		}

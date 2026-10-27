@@ -139,13 +139,16 @@ function r24_handle_contact(): void {
 	if ( $is_email ) {
 		$headers[] = 'Reply-To: ' . str_replace( [ "\r", "\n", '<', '>' ], '', $name ) . ' <' . $contact . '>';
 	}
+	if ( is_email( (string) r24_opt( 'form_cc' ) ) ) {
+		$headers[] = 'Cc: ' . r24_opt( 'form_cc' );
+	}
 	$sent = wp_mail( $to, (string) r24_opt( 'form_subject' ), $body, $headers );
 
 	if ( $sent && $is_email && '1' === r24_opt( 'form_autoreply' ) ) {
 		wp_mail(
 			$contact,
-			sprintf( __( 'Dziękujemy za wiadomość — %s', 'remontuj24' ), r24_opt( 'company_short' ) ),
-			sprintf( "Dzień dobry,\n\ndziękujemy za wiadomość. %s\n\nPozdrawiamy\n%s\n%s · %s", r24_opt( 'form_success' ), r24_opt( 'company_short' ), r24_opt( 'phone' ), r24_opt( 'email' ) ),
+			(string) r24_opt( 'form_autoreply_subject' ),
+			trim( (string) r24_opt( 'form_autoreply_text' ) ) . "\n" . implode( ' · ', array_filter( [ r24_opt( 'phone' ), r24_opt( 'email' ) ] ) ),
 			[ 'Content-Type: text/plain; charset=UTF-8' ]
 		);
 	}

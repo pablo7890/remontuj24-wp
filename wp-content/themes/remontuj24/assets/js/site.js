@@ -1,15 +1,16 @@
 /* Remontuj24 — header, reveal on scroll, before/after sliders, process steps, forms. No libraries. */
 (() => {
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const fineMouse = matchMedia('(hover:hover) and (pointer:fine)').matches;
   const root = document.documentElement;
+  // Animations can be switched off in Remontuj24 → Ustawienia (html.no-anim).
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches || root.classList.contains('no-anim');
+  const fineMouse = matchMedia('(hover:hover) and (pointer:fine)').matches;
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const onScroll = fn => { addEventListener('scroll', fn, {passive:true}); fn(); };
   if (!reduce) root.classList.add('js');
 
   /* header: hide on scroll down, show on scroll up; progress line; phone action bar */
-  const header = $('.header'), bar = $('#actionbar'), prog = $('#progress');
+  const header = $('.header'), bar = $('#actionbar') || document.createElement('div'), prog = $('#progress');
   let lastY = scrollY;
   onScroll(() => {
     const y = scrollY;
@@ -87,7 +88,19 @@
       ba.addEventListener('pointerdown', () => { cursor.textContent = '← →'; });
     }
   });
-  addEventListener('pointerup', () => { if (cursor) cursor.textContent = 'Przeciągnij'; });
+  const cursorLabel = cursor ? cursor.textContent : '';
+  addEventListener('pointerup', () => { if (cursor) cursor.textContent = cursorLabel; });
+
+  /* announcement bar: closed once, stays closed until its text changes */
+  const ann = $('#announce');
+  if (ann) {
+    const key = 'r24-announce-' + ann.dataset.key;
+    try { if (localStorage.getItem(key)) ann.remove(); } catch (e) {}
+    $('.announce-close', ann)?.addEventListener('click', () => {
+      ann.remove();
+      try { localStorage.setItem(key, '1'); } catch (e) {}
+    });
+  }
 
   /* process: active step, matching photo, gold rail */
   $$('[data-process]').forEach(proc => {

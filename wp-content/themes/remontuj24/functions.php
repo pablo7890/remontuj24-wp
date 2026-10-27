@@ -7,7 +7,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-const R24T_VERSION = '1.0.0';
+const R24T_VERSION = '1.1.0';
 
 /** Without the plugin the templates have nothing to draw with, so visitors get a simple holding page. */
 if ( ! function_exists( 'r24_opt' ) ) {

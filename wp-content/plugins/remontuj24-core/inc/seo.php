@@ -40,7 +40,7 @@ function r24_meta_description(): string {
 	if ( is_category() && category_description() ) {
 		return wp_strip_all_tags( category_description() );
 	}
-	return (string) get_bloginfo( 'description' );
+	return (string) ( r24_opt( 'seo_default_desc' ) ?: get_bloginfo( 'description' ) );
 }
 
 add_filter( 'pre_get_document_title', function ( $title ) {
@@ -62,6 +62,7 @@ add_action( 'wp_head', function () {
 	$title = wp_get_document_title();
 	$url   = is_singular() ? get_permalink() : home_url( add_query_arg( [] ) );
 	$image = is_singular() && has_post_thumbnail() ? wp_get_attachment_image_url( get_post_thumbnail_id(), 'large' ) : '';
+	$image = $image ?: ( (int) r24_opt( 'og_image' ) ? wp_get_attachment_image_url( (int) r24_opt( 'og_image' ), 'large' ) : '' );
 	if ( $desc ) {
 		printf( "<meta name=\"description\" content=\"%s\">\n", esc_attr( $desc ) );
 	}
@@ -86,8 +87,8 @@ add_action( 'wp_head', function () {
 			'telephone'  => r24_opt( 'phone' ),
 			'email'      => r24_opt( 'email' ),
 			'address'    => r24_opt( 'address' ) ?: null,
-			'areaServed' => [ 'Gdańsk', 'Gdynia', 'Sopot' ],
-			'sameAs'     => array_values( array_filter( [ r24_opt( 'instagram' ), r24_opt( 'facebook' ), r24_opt( 'tiktok' ) ] ) ),
+			'areaServed' => array_values( array_filter( array_map( 'trim', explode( ',', (string) r24_opt( 'areas_served' ) ) ) ) ),
+			'sameAs'     => array_values( array_filter( array_map( 'r24_opt', array_keys( r24_social_networks() ) ) ) ),
 			'logo'       => function_exists( 'r24_theme_logo_url' ) ? r24_theme_logo_url() : null,
 		] );
 		echo '<script type="application/ld+json">' . wp_json_encode( $org, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "</script>\n";
@@ -105,3 +106,14 @@ add_action( 'wp_head', function () {
 		echo '<script type="application/ld+json">' . wp_json_encode( array_filter( $article ), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES ) . "</script>\n";
 	}
 }, 2 );
+
+/** Google Search Console ownership check. */
+add_action( 'wp_head', function () {
+	$code = trim( (string) r24_opt( 'gsc_verification' ) );
+	if ( preg_match( '/content="([^"]+)"/', $code, $m ) ) {
+		$code = $m[1]; // The whole tag was pasted.
+	}
+	if ( $code ) {
+		printf( "<meta name=\"google-site-verification\" content=\"%s\">\n", esc_attr( $code ) );
+	}
+}, 1 );

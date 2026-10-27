@@ -14,9 +14,10 @@ function r24t_has_sections( $post = null ): bool {
 
 /** Logo: the one set in Customizer, otherwise the theme's SVG ("poziome" or "poziome-bez-hasla"). */
 function r24t_logo( string $variant = 'poziome-bez-hasla', int $width = 252 ): string {
-	$custom = get_theme_mod( 'custom_logo' );
-	if ( $custom && 'poziome-bez-hasla' === $variant ) {
-		return wp_get_attachment_image( $custom, 'medium', false, [ 'alt' => get_bloginfo( 'name' ), 'class' => 'custom-logo', 'fetchpriority' => 'high' ] );
+	// Own logo from Remontuj24 → Ustawienia (or the Customizer) replaces the built-in one.
+	$custom = 'poziome' === $variant ? (int) r24_opt( 'logo_footer' ) : ( (int) r24_opt( 'logo' ) ?: (int) get_theme_mod( 'custom_logo' ) );
+	if ( $custom && wp_attachment_is_image( $custom ) ) {
+		return wp_get_attachment_image( $custom, 'medium', false, [ 'alt' => get_bloginfo( 'name' ), 'class' => 'custom-logo', 'loading' => 'poziome' === $variant ? 'lazy' : false ] );
 	}
 	$alt = 'poziome' === $variant ? sprintf( '%s, %s', get_bloginfo( 'name' ), __( 'od kluczy do gotowego wnętrza', 'remontuj24' ) ) : get_bloginfo( 'name' );
 	return sprintf(
@@ -156,10 +157,11 @@ function r24t_closing(): string {
 	return render_block( [
 		'blockName'    => 'r24/closing',
 		'attrs'        => [
-			'eyebrow' => __( 'Twoje mieszkanie', 'remontuj24' ),
-			'title'   => __( 'Wszystko zaczyna się od rozmowy.', 'remontuj24' ),
-			'sub'     => __( 'Nie trzeba mieć gotowego projektu, wybranych materiałów ani szczegółowego planu.', 'remontuj24' ),
-			'btn_url' => r24_opt( 'contact_url', '/kontakt/' ),
+			'eyebrow'  => (string) r24_opt( 'closing_eyebrow' ),
+			'title'    => (string) r24_opt( 'closing_title' ),
+			'sub'      => (string) r24_opt( 'closing_sub' ),
+			'btn_text' => (string) r24_opt( 'closing_btn' ),
+			'btn_url'  => r24_opt( 'contact_url', '/kontakt/' ),
 		],
 		'innerBlocks'  => [],
 		'innerHTML'    => '',
